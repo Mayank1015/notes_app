@@ -58,7 +58,6 @@ class DBHelper {
 
   Future<int> update(NotesModel note) async {
     var dbClient = await db;
-    // NotesModel data;
     return await dbClient!.update(
       'ncb',
       {

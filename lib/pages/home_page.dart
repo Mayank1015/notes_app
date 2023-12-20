@@ -31,11 +31,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
+        leading: const Icon(Icons.edit_note_rounded),
         backgroundColor: Colors.yellow,
         scrolledUnderElevation: 0,
-        elevation: 0,
         title: const Text(
           "Notes App",
           style: TextStyle(
@@ -48,9 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
         notesList: notesList,
       ),
       floatingActionButton: Consumer<NotesListProvider>(
-        builder: (context, value, child){
+        builder: (context, value, child) {
           return FloatingActionButton(
-            // shape: ,
             backgroundColor: Colors.yellow,
             onPressed: () async {
               final data = await Navigator.of(context).push<NotesModel>(
@@ -61,10 +60,8 @@ class _MyHomePageState extends State<MyHomePage> {
               if (data == null) {
                 return;
               }
-              // setState(() {
-                dbHelper?.insert(data);
+              dbHelper?.insert(data);
               value.refresh();
-              // });
             },
             child: const Icon(
               Icons.add,

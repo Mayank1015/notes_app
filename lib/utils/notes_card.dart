@@ -22,7 +22,7 @@ class NotesCard extends StatelessWidget {
       ),
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        border: Border.all(width: 2, color: Colors.brown.shade200),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
@@ -37,6 +37,7 @@ class NotesCard extends StatelessWidget {
               fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Colors.black87,
+              letterSpacing: 0.5,
             ),
           ),
           const SizedBox(
@@ -49,6 +50,7 @@ class NotesCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 17,
               color: Colors.grey.shade500,
+              letterSpacing: 0.2,
             ),
           ),
         ],

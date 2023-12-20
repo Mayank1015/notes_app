@@ -10,7 +10,6 @@ class MainContent extends StatelessWidget {
   const MainContent({Key? key, required this.notesList}) : super(key: key);
 
   final Future<List<NotesModel>> notesList;
-  final imgUrl = "assets/empty.jpg";
 
   @override
   Widget build(BuildContext context) {
@@ -26,44 +25,31 @@ class MainContent extends StatelessWidget {
             }
             if (snapshot.data!.isEmpty) {
               return Center(
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      FadeInImage(
-                        placeholder: MemoryImage(kTransparentImage),
-                        image: AssetImage(imgUrl),
-                        width: double.infinity,
-                        fit: BoxFit.fitWidth,
+                child: RichText(
+                  text: const TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'Click "',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          letterSpacing: 0.3,
+                        ),
                       ),
-                      RichText(
-                        text: const TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: 'Click "',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                letterSpacing: 0.3,
-                              ),
-                            ),
-                            TextSpan(
-                              text: ' + ',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 21,
-                                color: Colors.yellow,
-                              ),
-                            ),
-                            TextSpan(
-                              text: '" to add new notes !',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                letterSpacing: 0.3,
-                              ),
-                            ),
-                          ],
+                      TextSpan(
+                        text: ' + ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 21,
+                          color: Colors.yellow,
+                        ),
+                      ),
+                      TextSpan(
+                        text: '" to add new notes !',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          letterSpacing: 0.3,
                         ),
                       ),
                     ],
@@ -117,7 +103,8 @@ class MainContent extends StatelessWidget {
                             ),
                           ),
                         );
-                        await Future.delayed(const Duration(milliseconds: 2200));
+                        await Future.delayed(
+                            const Duration(milliseconds: 2200));
                         if (!del) {
                           value.refresh();
                         } else {

@@ -74,6 +74,7 @@ class _AddNotesState extends State<AddNotes> {
                   },
                   maxLength: 50,
                   keyboardType: TextInputType.text,
+                  textCapitalization: TextCapitalization.sentences,
                   style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w500,
@@ -112,6 +113,7 @@ class _AddNotesState extends State<AddNotes> {
                   maxLines: 100,
                   minLines: 15,
                   autofocus: true,
+                  textCapitalization: TextCapitalization.sentences,
                   style: const TextStyle(color: Colors.black87),
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsets.symmetric(
